@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+
+    <style>
+        body{
+            margin: 0;
+            background-image: url('https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-position: center;
+            background-size: cover;
+        }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+          font-weight:bold;
+          height: 100vh;
+      }
+
+ .timer{
+    text-align: center;
+    font-size: 6.5rem;
+    backdrop-filter: blur(3px);
+    width: 100%;
+    padding: 15px;
+    color: azure;
+ }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="clock" class="timer"></div>
+    </div>
+
+    <script>
+
+
+function updateClock() {
+    const now=new Date();
+    const hours=now.getHours().toString().padStart(2,0);
+    const minutes=now.getMinutes().toString().padStart(2,0);
+    const seconds=now.getSeconds().toString().padStart(2,0);
+  let time=`${hours}:${minutes}:${seconds}`;
+  document.getElementById("clock").textContent=time;
+
+}
+updateClock();
+setInterval(updateClock,1000)
+    </script>
+  </body>
+</html>
